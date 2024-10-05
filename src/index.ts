@@ -1,20 +1,24 @@
-import express, { Application, Request, Response } from 'express';
+import express, { Application } from 'express';
+import { connectDB } from './config/database'; // Import the MongoDB connection
+import dotenv from 'dotenv';
 
-// Khởi tạo ứng dụng Express
+// Load environment variables
+dotenv.config();
+
 const app: Application = express();
+const port: number = process.env.PORT ? parseInt(process.env.PORT) : 3000;
 
-// Cài đặt port
-const port: number = 3000;
-
-// Middleware để parse JSON
 app.use(express.json());
 
-// Route cơ bản
-app.get('/', (req: Request, res: Response): void => {
-  res.send('Hello, TypeScript with Express!');
+// Connect to MongoDB Atlas
+connectDB();
+
+// Basic route
+app.get('/', (req, res) => {
+  res.send('Hello, MongoDB with Express!');
 });
 
-// Khởi động server
-app.listen(port, (): void => {
-  console.log(`Server is running on http://localhost:${port}`);
+// Start the server
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
 });
