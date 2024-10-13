@@ -1,5 +1,4 @@
 {
-  "extends": "@tsconfig/node20/tsconfig.json",
   "compilerOptions": {
     "module": "commonjs",
     "target": "es2020",
@@ -26,7 +25,7 @@
   "ts-node": {
     "require": ["tsconfig-paths/register"]
   },
-  "files": ["src/type.d.ts"], // Các file dùng để defined global type cho dự án
+  // "files": ["src/type.d.ts"], // Các file dùng để defined global type cho dự án
   "include": ["src/**/*"], // Đường dẫn include cho các file cần build
   "exclude": [".vscode/node_modules", "**/*.spec.ts"]
 }
