@@ -1,7 +1,8 @@
+// src/config/db.ts
+
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
-// Load environment variables
 dotenv.config();
 
 // Get the MongoDB URI from the environment variables
